@@ -59,5 +59,21 @@
                 </h:panelGrid>
             </ace:panel>
         </h:form>
+        <h:form>
+            <h:commandButton action="#{proyectoController.cmdCreate}" value="Crear Proyecto"></h:commandButton>
+            <br></br>
+            <h:commandButton action="#{enteController.cmdCreate}" value="Crear Ente"></h:commandButton>            
+            <ace:dataTable value = "#{proyectoController.listaProyecto}" var="item">
+                <ace:column headerText="NOG" >
+                    <h:outputText value="#{item.nog}"/>
+                </ace:column>
+                <ace:column headerText="Proyecto" >
+                    <h:outputText value="#{item.nombre}"/>
+                </ace:column>                
+                <ace:column headerText="Monto" >
+                    <h:outputText value="#{item.monto}"/>
+                </ace:column>
+            </ace:dataTable>
+        </h:form>
     </h:body>
 </html>

@@ -6,7 +6,6 @@
 package controller;
 
 import entities.Ente;
-import entities.Proyecto;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -25,7 +24,8 @@ import stateless.EnteFacade;
 
 
 public class EnteController implements Serializable{
-    
+
+    private static final long serialVersionUID = 1979050895618488871L;   
     //Campos de la tabla Ente
     
     private int idEnte;

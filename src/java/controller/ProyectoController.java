@@ -25,7 +25,8 @@ import stateless.ProyectoFacade;
 @SessionScoped
 
 public class ProyectoController implements Serializable{
-    
+
+    private static final long serialVersionUID = 3196528861852293781L;   
     private List<Proyecto> listaProyecto = null;
     
     private int nog;
