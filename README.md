@@ -1,0 +1,2 @@
+# SeminarioController
+Controlador de seminario
