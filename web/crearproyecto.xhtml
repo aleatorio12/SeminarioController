@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:icecore="http://www.icefaces.org/icefaces/core"
+      xmlns:ace="http://www.icefaces.org/icefaces/components">
+    <h:head>
+        <title>Inicio</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <ace:panel header="Agregar Proyecto" >
+                
+            <h:outputLabel value="NOG/SNIP" ></h:outputLabel>
+            <ace:textEntry value="#{proyectoController.nog}"></ace:textEntry>
+            <h:outputLabel value="Nombre del Proyecto" ></h:outputLabel>
+            <ace:textEntry value="#{proyectoController.nombre}"></ace:textEntry>
+            <h:outputLabel value="Monto asignado" ></h:outputLabel>
+            <ace:textEntry value="#{proyectoController.monto}"></ace:textEntry>
+            <h:outputLabel value="Dirección" ></h:outputLabel>
+            <ace:textEntry value="#{proyectoController.direccion}"></ace:textEntry>
+            <h:outputLabel value="Impacto Social" ></h:outputLabel>
+            <ace:textEntry value="#{proyectoController.impactoSocial}"></ace:textEntry>
+            <h:outputLabel value="Ente Ejecutor" ></h:outputLabel>
+            <h:commandButton value="#{enteController}">
+            <ace:textEntry value="#{proyectoController.enteEjecutor.idEnte}"></ace:textEntry>
+            <h:outputLabel value="Ente Rector" ></h:outputLabel>
+            <ace:textEntry value="#{proyectoController.enteRector.idEnte}"></ace:textEntry>
+            <h:outputLabel value="Ente Supervisor" ></h:outputLabel>
+            <ace:textEntry value="#{proyectoController.enteSupervisor.idEnte}"></ace:textEntry>
+            <h:outputLabel value="Estado" ></h:outputLabel>
+            <ace:textEntry value="#{proyectoController.estado}"></ace:textEntry>
+            <h:commandButton value="Agregar Proyecto" action="#{proyectoController.insertarProyecto}"></h:commandButton>
+            </ace:panel> 
+
+        </h:form>
+    </h:body>
+</html>
+
