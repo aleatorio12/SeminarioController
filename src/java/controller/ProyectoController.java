@@ -77,7 +77,7 @@ public class ProyectoController implements Serializable{
         proyecto.setMonto(monto);
         proyecto.setImpactoSocial(impactoSocial);
         proyecto.setEstado(estado);
-        proyecto.setEnteEjecutor(enteEjecutor);
+       
         
         proyectoFacade.create(proyecto);
         

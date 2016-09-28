@@ -50,7 +50,7 @@ public class EnteController implements Serializable{
         Ente ente = new Ente();
         ente.setNombre(nombre);
         ente.setDireccion(direccion);
-        ente.setTipo(tipo);
+        
         enteFacade.create(ente);
         return "index.xhtml";
     }
