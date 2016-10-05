@@ -7,16 +7,15 @@
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <h:outputStylesheet name="./css/default.css"/>
-        <h:outputStylesheet name="./css/cssLayout.css"/>
-        <title>Facelets Template</title>
+        <title>RED ACIAS - HEADER</title>
     </h:head>
 
     <h:body>
 
+        <h:form>
+
         <div id="header">
-            <ui:insert name="header">
-                
+            <ui:insert name="header">                
             <ace:panel id="panelSuperior" closable="false" style="align-content: center" >
                 <ace:menuBar id="menu" autoSubmenuDisplay="true" style="align-content: center">
                     
@@ -56,7 +55,9 @@
                 
             </ui:insert>
         </div>
-
+            
+        </h:form>
+        
     </h:body>
 
 </html>

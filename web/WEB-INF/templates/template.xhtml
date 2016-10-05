@@ -1,33 +1,32 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
 
-    <body>
+    <h:body>
 
-        <ui:composition template="./header.xhtml">
-
-            <ui:define name="header">
-                header
-            </ui:define>
-
-        </ui:composition>
-
-        <ui:composition template="./content.xhtml">
-
-            <ui:define name="content">
-                content
-            </ui:define>
-
-        </ui:composition>
+        <div id="page">
         
-        <ui:composition template="./footer.xhtml">
+            <div id="header">
+                <ui:insert name="header">
+                    <ui:include src="/WEB-INF/templates/header.xhtml"></ui:include>
+                </ui:insert>   
+            </div>
 
-            <ui:define name="footer">
-                footer
-            </ui:define>
+            <div id="content">
+                <ui:insert name="content">
+                    <ui:include src="/WEB-INF/templates/content.xhtml"></ui:include>
+                </ui:insert>   
+            </div>
 
-        </ui:composition>        
-        
-    </body>
+            <div id="footer">
+                <ui:insert name="footer">
+                    <ui:include src="/WEB-INF/templates/footer.xhtml"></ui:include>
+                </ui:insert>   
+            </div>
+            
+        </div>
+            
+    </h:body>
 </html>
