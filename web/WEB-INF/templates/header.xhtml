@@ -1,17 +1,22 @@
-    <?xml version='1.0' encoding='UTF-8' ?>
-    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-    <html xmlns="http://www.w3.org/1999/xhtml"
-          xmlns:ui="http://java.sun.com/jsf/facelets"
-          xmlns:f="http://java.sun.com/jsf/core"
-          xmlns:h="http://java.sun.com/jsf/html"
-          xmlns:icecore="http://www.icefaces.org/icefaces/core"
-          xmlns:ace="http://www.icefaces.org/icefaces/components">
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ace="http://www.icefaces.org/icefaces/components">
+
     <h:head>
-        <title>Inicio</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="./css/default.css"/>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+        <title>Facelets Template</title>
     </h:head>
+
     <h:body>
-        
-        <h:form>
+
+        <div id="header">
+            <ui:insert name="header">
+                
             <ace:panel id="panelSuperior" closable="false" style="align-content: center" >
                 <ace:menuBar id="menu" autoSubmenuDisplay="true" style="align-content: center">
                     
@@ -47,33 +52,11 @@
                     
                 </ace:menuBar>
 
-            </ace:panel>
-            <ace:panel id="panelCentral">
-                <h:panelGrid>
-                    <h:outputText value="Hola centro"></h:outputText>
-                </h:panelGrid>
-            </ace:panel>
-            <ace:panel id="panelInferior">
-                <h:panelGrid>
-                    <h:outputText value="Hola final"></h:outputText>
-                </h:panelGrid>
-            </ace:panel>
-        </h:form>
-        <h:form>
-            <h:commandButton action="#{proyectoController.cmdCreate}" value="Crear Proyecto"></h:commandButton>
-            <br></br>
-            <h:commandButton action="#{enteController.cmdCreate}" value="Crear Ente"></h:commandButton>            
-            <ace:dataTable value = "#{proyectoController.listaProyecto}" var="item">
-                <ace:column headerText="NOG" >
-                    <h:outputText value="#{item.nog}"/>
-                </ace:column>
-                <ace:column headerText="Proyecto" >
-                    <h:outputText value="#{item.nombre}"/>
-                </ace:column>                
-                <ace:column headerText="Monto" >
-                    <h:outputText value="#{item.monto}"/>
-                </ace:column>
-            </ace:dataTable>
-        </h:form>
+            </ace:panel>                
+                
+            </ui:insert>
+        </div>
+
     </h:body>
+
 </html>
