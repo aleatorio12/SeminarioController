@@ -43,7 +43,7 @@ public class EnteController implements Serializable{
     }
     
     public String cmdCreate(){
-        return "crearente.xhtml";
+        return "/ente/crearente.xhtml";
     }
 
     public String registrarEnte(){

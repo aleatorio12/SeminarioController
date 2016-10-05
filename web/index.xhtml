@@ -4,76 +4,17 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:icecore="http://www.icefaces.org/icefaces/core"
       xmlns:ace="http://www.icefaces.org/icefaces/components">
-    <h:head>
-        <title>Inicio</title>
-    </h:head>
-    <h:body>
-        
-        <h:form>
-            <ace:panel id="panelSuperior" closable="false" style="align-content: center" >
-                <ace:menuBar id="menu" autoSubmenuDisplay="true" style="align-content: center">
-                    
-                    <ace:menuItem value="Inicio" url="#" icon="ui-icon ui-icon-home"/>
 
-                    <ace:submenu id="proyecto" label="Proyecto">
-                        
-                        <ace:menuItem value="Nuevo Proyecto" url="#{proyectoController.cmdCreate()}" icon="ui-icon ui-icon-home"/>
-                        <ace:menuItem value="Listar Proyectos" url="#" icon="ui-icon ui-icon-home"/>
-                        
-                    </ace:submenu>
+    <body>
 
-                    <ace:submenu id="ente" label="Ente">
-                        
-                        <ace:menuItem value="Nuevo Ente" url="#{proyectoController.cmdCreate()}" icon="ui-icon ui-icon-home"/>
-                        <ace:menuItem value="Listar Entes" url="#" icon="ui-icon ui-icon-home"/>
-                        
-                    </ace:submenu>
+        <ui:composition template="/WEB-INF/templates/template.xhtml">
+            <ui:define name="content">
 
-                    <ace:submenu id="usuario" label="Usuarios">
-                        
-                        <ace:menuItem value="Nuevo Usuario" url="#{proyectoController.cmdCreate()}" icon="ui-icon ui-icon-home"/>
-                        <ace:menuItem value="Listar Usuarios" url="#" icon="ui-icon ui-icon-home"/>
-                        
-                    </ace:submenu>
+                <h1>Aquí irá el contenido</h1>
 
-                    <ace:submenu id="archivo" label="Archivos">
-                        
-                        <ace:menuItem value="Modificar Archivo" url="#{proyectoController.cmdCreate()}" icon="ui-icon ui-icon-home"/>
-                        <ace:menuItem value="Listar Archivo" url="#" icon="ui-icon ui-icon-home"/>
-                        
-                    </ace:submenu>                    
-                    
-                </ace:menuBar>
+            </ui:define>
+        </ui:composition>
 
-            </ace:panel>
-            <ace:panel id="panelCentral">
-                <h:panelGrid>
-                    <h:outputText value="Hola centro"></h:outputText>
-                </h:panelGrid>
-            </ace:panel>
-            <ace:panel id="panelInferior">
-                <h:panelGrid>
-                    <h:outputText value="Hola final"></h:outputText>
-                </h:panelGrid>
-            </ace:panel>
-        </h:form>
-        <h:form>
-            <h:commandButton action="#{proyectoController.cmdCreate}" value="Crear Proyecto"></h:commandButton>
-            <br></br>
-            <h:commandButton action="#{enteController.cmdCreate}" value="Crear Ente"></h:commandButton>            
-            <ace:dataTable value = "#{proyectoController.listaProyecto}" var="item">
-                <ace:column headerText="NOG" >
-                    <h:outputText value="#{item.nog}"/>
-                </ace:column>
-                <ace:column headerText="Proyecto" >
-                    <h:outputText value="#{item.nombre}"/>
-                </ace:column>                
-                <ace:column headerText="Monto" >
-                    <h:outputText value="#{item.monto}"/>
-                </ace:column>
-            </ace:dataTable>
-        </h:form>
-    </h:body>
+    </body>
 </html>
