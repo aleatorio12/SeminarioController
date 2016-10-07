@@ -11,7 +11,27 @@
         <ui:composition template="/WEB-INF/templates/template.xhtml">
             <ui:define name="content">
 
+                 <h:form>
+                     <center>
+                        <ace:panel header="DATOS FASE" style="width: 500px;">             
+                        <h:outputLabel value="Nombre" ></h:outputLabel>
+                        <ace:textEntry value="#{faseController.nombre}"></ace:textEntry>
+                        <h:outputLabel value="Fecha de Inicio" ></h:outputLabel>                                 
+                        <ace:textEntry value="#{faseController.fechaInicio}"></ace:textEntry>
+                        <h:outputLabel value="Fecha de Finalizacion" ></h:outputLabel>
+                        <ace:textEntry value="#{faseController.fechaFinalizacion}"></ace:textEntry>
+                        <h:outputLabel value="Estado" ></h:outputLabel>
+                        <ace:textEntry value="#{faseController.estado}"></ace:textEntry>
+                        <h:commandButton value="Crear" action="#{faseController.registrarFase}"> </h:commandButton>
+                        </ace:panel>
+                     </center>
+                     
+                     
+                    
+                      
+                 </h:form> 
                 
+                              
 
             </ui:define>
         </ui:composition>
