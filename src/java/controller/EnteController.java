@@ -28,10 +28,10 @@ public class EnteController implements Serializable{
     private static final long serialVersionUID = 1979050895618488871L;   
     //Campos de la tabla Ente
     
-    private int idEnte;
-    private String nombre;
-    private String direccion;
-    private char tipo;
+    private Integer idEnte = null;
+    private String nombre = null;
+    private String direccion = null;
+    private Character tipo = null;
     
     private List<Ente> listEnte = null;
     
@@ -50,7 +50,6 @@ public class EnteController implements Serializable{
         Ente ente = new Ente();
         ente.setNombre(nombre);
         ente.setDireccion(direccion);
-        
         enteFacade.create(ente);
         return "index.xhtml";
     }
