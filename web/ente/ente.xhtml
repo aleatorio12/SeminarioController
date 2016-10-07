@@ -28,8 +28,8 @@
                             <h:outputText id="direccionEnteColumna" value="#{ente.direccion}"></h:outputText>
                         </ace:column>
                          <ace:column id="accionEnte" headerText="ACCIONES">
-                             <h:commandButton id="modificarEnte" action="#" value="#{enteController.cmdCreate.}"></h:commandButton>
-                             <h:commandButton id="eliminarEnte" action="#" value="Eliminar"></h:commandButton>                             
+                             <h:commandButton id="modificarEnte" action="#{enteController.cmdModificar(ente)}" value="Modificar"></h:commandButton>
+                             <h:commandButton id="eliminarEnte" action="#{enteController.cmdEliminar(ente)}" value="Eliminar"></h:commandButton>                             
                         </ace:column>
                     </ace:dataTable>                    
                 </h:form>
