@@ -28,8 +28,6 @@ public class EnteController implements Serializable{
     private static final long serialVersionUID = 1979050895618488871L;   
     //Campos de la tabla Ente
     
-    private Ente ente = null;
-    
     private Integer idEnte = null;
     private String nombre = null;
     private String direccion = null;
@@ -47,45 +45,16 @@ public class EnteController implements Serializable{
     public String cmdCreate(){
         return "/faces/ente/crearente.xhtml";
     }
-    
-    public String cmdModificar(Ente ente){
-        this.ente = ente;
-        this.idEnte = ente.getIdEnte();
-        this.nombre = ente.getNombre();
-        this.direccion = ente.getDireccion();
-        this.tipo = ente.getTipoEnte();
-        return "/faces/ente/editarente.xhtml";
-    }
 
-    public String cmdEliminar(Ente ente){
-        this.ente = null;
-        this.idEnte = null;
-        this.nombre = null;
-        this.direccion = null;
-        this.tipo = null;
-        enteFacade.remove(ente);
-        this.listEnte = this.enteFacade.findAll();
-        return "/faces/ente/ente.xhtml";
-    }
-    
     public String registrarEnte(){
         Ente ente = new Ente();
         ente.setNombre(nombre);
         ente.setDireccion(direccion);
         ente.setTipoEnte(tipo);
         enteFacade.create(ente);
-        listEnte = enteFacade.findAll();
         return "/faces/ente/ente.xhtml";
     }
 
-    public String actualizarEnte(){
-        this.ente.setIdEnte(idEnte);
-        this.ente.setNombre(nombre);
-        this.ente.setDireccion(direccion);
-        this.ente.setTipoEnte(tipo);
-        enteFacade.edit(ente);
-        return "/faces/ente/ente.xhtml";
-    }
     
     /**
      * @return the listEnte
@@ -101,14 +70,6 @@ public class EnteController implements Serializable{
         this.listEnte = listEnte;
     }
 
-    public Ente getEnte() {
-        return ente;
-    }
-
-    public void setEnte(Ente ente) {
-        this.ente = ente;
-    }
-    
     /**
      * @return the idEnte
      */
