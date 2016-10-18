@@ -4,64 +4,69 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ace="http://www.icefaces.org/icefaces/components">
-
+    
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>RED ACIAS - HEADER</title>
+        <link rel="shortcut icon" type="image/x-icon" href="#{request.contextPath}//resources/media/acias.png"/>
+        <title>RED ACIAS</title>
     </h:head>
-
-    <h:body>
+    
+   <h:body>
 
         <h:form>
 
-        <div id="header">
-            <ui:insert name="header">                
-            <ace:panel id="panelSuperior" closable="false" style="align-content: center" >
-                <ace:menuBar id="menu" autoSubmenuDisplay="true" style="align-content: center">
+            <div id="header">
                     
-                    <ace:menuItem value="Inicio" url="#" icon="ui-icon ui-icon-home"/>
-
-                    <ace:submenu id="proyecto" label="Proyecto">
-                        
-                        <ace:menuItem value="Nuevo Proyecto" url="#{proyectoController.cmdCreate()}" icon="ui-icon ui-icon-home"/>
-                        <ace:menuItem value="Listar Proyectos" url="#" icon="ui-icon ui-icon-home"/>
-                        
-                    </ace:submenu>
-
-                    <ace:submenu id="ente" label="Ente">
-                        
-                        <ace:menuItem value="Nuevo Ente" url="#{enteController.cmdCreate()}" icon="ui-icon ui-icon-home"/>
-                        <ace:menuItem value="Listar Entes" url="#" icon="ui-icon ui-icon-home"/>
-                        
-                    </ace:submenu>
-
-                    <ace:submenu id="usuario" label="Usuarios">
-                        
-                        <ace:menuItem value="Nuevo Usuario" url="#{proyectoController.cmdCreate()}" icon="ui-icon ui-icon-home"/>
-                        <ace:menuItem value="Listar Usuarios" url="#" icon="ui-icon ui-icon-home"/>
-                        
-                    </ace:submenu>
-
-                    <ace:submenu id="archivo" label="Archivos">
-                        
-                        <ace:menuItem value="Modificar Archivo" url="#{proyectoController.cmdCreate()}" icon="ui-icon ui-icon-home"/>
-                        <ace:menuItem value="Listar Archivo" url="#" icon="ui-icon ui-icon-home"/>
-                        
-                    </ace:submenu>                    
-
-                    <ace:submenu id="fase" label="Fase">
-                        
-                        <ace:menuItem value="Modificar Fase" url="#{faseController.cmdCreate()}" icon="ui-icon ui-icon-home"/>
-                        <ace:menuItem value="Listar Fase" url="#" icon="ui-icon ui-icon-home"/>
-                        
-                    </ace:submenu>
+                <ui:insert name="header">     
                     
-                </ace:menuBar>
+                    <ace:panel id="panelSuperior" closable="false" style="align-content: center" >
+                        
+                        <ace:menuBar id="menuBar" autoSubmenuDisplay="true" style="align-content: center">
 
-            </ace:panel>                
-                
-            </ui:insert>
-        </div>
+                            <ace:menuItem value="Inicio" url="http://localhost:8080/SeminarioController/" icon="ui-icon ui-icon-home"/>
+
+                            <ace:submenu id="proyecto" label="Proyecto">
+
+                                <ace:menuItem value="Nuevo Proyecto" url="#{proyectoController.cmdCreate()}" icon="ui-icon ui-icon-home"/>
+                                <ace:menuItem value="Listar Proyectos" url="#" icon="ui-icon ui-icon-home"/>
+
+                            </ace:submenu>
+
+                            <ace:submenu id="ente" label="Ente">
+
+                                <ace:menuItem value="Nuevo Ente" url="#{enteController.cmdCreate()}" icon="ui-icon ui-icon-home"/>
+                                <ace:menuItem value="Listar Entes" url="#" icon="ui-icon ui-icon-home"/>
+
+                            </ace:submenu>
+
+
+
+                            <ace:submenu id="usuario" label="Usuarios">
+
+                                <ace:menuItem value="Ver Usuarios" 
+                                              icon="ui-icon ui-icon-contact"
+                                              url="http://localhost:8080/SeminarioController/faces/usuario/buscar.xhtml">
+                                </ace:menuItem>
+                                <ace:menuItem value="Gestion Usuarios" 
+                                              icon="ui-icon ui-icon-pencil"
+                                              url="http://localhost:8080/SeminarioController/faces/usuario/gestion.xhtml">
+                                </ace:menuItem>
+
+                            </ace:submenu>
+
+                            <ace:submenu id="archivo" label="Archivos">
+
+                                <ace:menuItem value="Modificar Archivo" url="#{proyectoController.cmdCreate()}" icon="ui-icon ui-icon-home"/>
+                                <ace:menuItem value="Listar Archivo" url="#" icon="ui-icon ui-icon-home"/>
+
+                            </ace:submenu>                    
+
+                        </ace:menuBar>
+
+                    </ace:panel>                
+
+                </ui:insert>
+            </div>
             
         </h:form>
         

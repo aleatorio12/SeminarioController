@@ -44,4 +44,12 @@ public class UsuarioController implements Serializable{
     public void init(){
         listUsuario=usuarioFacade.findAll();
     }
+    
+    public String cmdBuscar (){
+        return "./buscar.xhtml";
+    }
+    
+    public String cmdGestion (){
+        return "./gestion.xhtml";
+    }
 }
