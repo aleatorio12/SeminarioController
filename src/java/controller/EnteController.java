@@ -31,9 +31,10 @@ public class EnteController implements Serializable{
     private Integer idEnte = null;
     private String nombre = null;
     private String direccion = null;
-    private Integer tipo = null;
     
     private List<Ente> listEnte = null;
+
+    private Ente ente;  
     
     @Inject
     private EnteFacade enteFacade;
@@ -50,11 +51,17 @@ public class EnteController implements Serializable{
         Ente ente = new Ente();
         ente.setNombre(nombre);
         ente.setDireccion(direccion);
-        ente.setTipoEnte(tipo);
         enteFacade.create(ente);
+        listEnte = enteFacade.findAll();
         return "/faces/ente/ente.xhtml";
     }
 
+    public String eliminarEnte(Ente ente){
+        this.ente = ente;
+        enteFacade.remove(ente);
+        listEnte = enteFacade.findAll();
+        return "/faces/ente/ente.xhtml";
+    }
     
     /**
      * @return the listEnte
@@ -112,18 +119,12 @@ public class EnteController implements Serializable{
         this.direccion = direccion;
     }
 
-    /**
-     * @return the tipo
-     */
-    public Integer getTipo() {
-        return tipo;
+    public Ente getEnte() {
+        return ente;
     }
 
-    /**
-     * @param tipo the tipo to set
-     */
-    public void setTipo(Integer tipo) {
-        this.tipo = tipo;
+    public void setEnte(Ente ente) {
+        this.ente = ente;
     }
-    
+        
 }
