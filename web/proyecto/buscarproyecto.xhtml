@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ace="http://www.icefaces.org/icefaces/components">
+
+    <body>
+
+        <ui:composition template="/WEB-INF/templates/template.xhtml">
+            <ui:define name="content">
+                <h:form>
+                    <ace:dataTable value="#{proyectoController.list}" var="var" 
+                                   selectionMode="single" 
+                                   paginator="true" 
+                                   pageCount="10" 
+                                   rows="10">
+                        <ace:column headerText="NOG" filterBy="#{var.nog}">
+                            <h:outputText value="#{var.nog}" style="display: block; text-align: left"/> 
+                        </ace:column>
+                        
+                        <ace:column headerText="Nombre" filterBy="#{var.nombre}">
+                            <h:outputText value="#{var.nombre}" style="display: block; text-align: left"/>
+                        </ace:column>
+                        
+                        <ace:column headerText="Monto">
+                            <h:outputText value="#{var.monto}" style="display: block; text-align: left"/>
+                        </ace:column>
+                        
+                        <ace:column headerText="Direccion">
+                            <h:outputText value="#{var.direccion}" style="display: block; text-align: left"/>
+                        </ace:column>
+                        
+                        <ace:column headerText="Fecha de inicio">
+                            <h:outputText value="#{var.fechaInicio}" style="display: block; text-align: left"/>
+                        </ace:column>
+                        
+                        <ace:column headerText="Fecha de Finalizacion">
+                            <h:outputText value="#{var.fechaFinalizacion}" style="display: block; text-align: left" />
+                        </ace:column>
+                        
+                        <ace:column headerText="Impacto Social">
+                            <h:outputText value="#{var.impactoSocial}" style="display: block; text-align: left"/>
+                        </ace:column>
+                        
+                        <ace:column headerText="Estado">
+                            <h:outputText value="#{var.estado}" style="display: block; text-align: left"/>  
+                        </ace:column>
+                    </ace:dataTable>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>
