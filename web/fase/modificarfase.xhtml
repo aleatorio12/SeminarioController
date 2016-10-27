@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ace="http://www.icefaces.org/icefaces/components">
+
+    <body>
+
+        <ui:composition template="/WEB-INF/templates/template.xhtml">
+            <ui:define name="content">
+
+                <h:form>
+                    <ace:dataTable value="#{faseController.list}" var="var" 
+                                   selectionMode="single" 
+                                   paginator="true" 
+                                   pageCount="10" 
+                                   rows="10">
+                        <ace:column headerText="Identificador de Fase" filterBy="#{var.idFase}">
+                            <h:outputText value="#{var.idFase}" style="display: block; text-align: left"/> 
+                        </ace:column>
+                        
+                        <ace:column headerText="Nombre de Fase" filterBy="#{var.nombre}">
+                            <h:outputText value="#{var.nombre}" style="display: block; text-align: left"/>
+                        </ace:column>
+                        
+                        <ace:column headerText="Fecha inicializacion de fase" filterBy="#{var.fechaInicio}">
+                            <h:outputText value="#{var.fechaInicio}" style="display: block; text-align: left">
+                                <f:convertDateTime pattern="dd MMMM, yyyy" locale="es_MX"/>
+                            </h:outputText>
+                        </ace:column>
+                        
+                        <ace:column headerText="Fecha Finalizacion de Fase" filterBy="#{var.fechaFinalizacion}">
+                            <h:outputText value="#{faseController.fechafinalizacion}" style="font-weight: bold;">
+                                <f:convertDateTime pattern="dd MMMM, yyyy" locale="es_MX"/>
+                        </h:outputText>
+                        </ace:column>
+                        
+                        <ace:column headerText="Estado de Fase">
+                            <h:outputText value="#{var.estado}" style="display: block; text-align: left"/>
+                        </ace:column>
+                        
+                        <ace:column headerText="Modificar Fase de Proyecto">
+                            <h:commandButton id="cmdModificarFase" value="Modificar Fase" action="#{faseController.cmdRedirige(var)}"/>
+                        </ace:column>
+                    </ace:dataTable>
+                </h:form>
+
+
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>

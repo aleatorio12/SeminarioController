@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ace="http://www.icefaces.org/icefaces/components">
+
+    <body>
+
+        <ui:composition template="/WEB-INF/templates/template.xhtml">
+            <ui:define name="content">
+                <h:form >
+                    <center>
+                        <ace:panel header="Crear Nueva Fase" style="width: 500px">
+                            <h:panelGrid columns="2">
+                                <h:outputLabel value="ID Fase :"/>
+                                <h:outputLabel value="#{faseController.idfase}"/>
+                                <h:outputLabel value="Nombre de Fase :"/>
+                                <ace:textEntry value="#{faseController.nombre}"/>
+                                <h:outputLabel value="Fecha de Inicio :"/>
+                                <ace:dateTimeEntry id="dateTimeEntry1" locale="es_MX"
+                                                   value="#{faseController.fechainicio}" renderAsPopup="true"/>   
+                                <h:outputLabel value="Fecha de Finalizacion :"/>
+                                <ace:dateTimeEntry id="dateTimeEntry2" locale="es_MX"
+                                                   value="#{faseController.fechafinalizacion}" renderAsPopup="true"/>
+                                <h:outputLabel value="Estado :"/>
+                                <ace:simpleSelectOneMenu id="filterIn" value="#{faseController.estado}">
+                                    <ace:ajax event="valueChange"/>
+                                    <f:selectItem itemValue="EN PROCESO" itemLabel="EN PROCESO"/>
+                                    <f:selectItem itemValue="NO FINALIZADA" itemLabel="NO FINALIZADA"/>
+                                    <f:selectItem itemValue="FINALIZADA" itemLabel="FINALIZADA"/> 
+                                </ace:simpleSelectOneMenu>
+                                <h:commandButton id="cmdmodificarProyecto"
+                                    value="Modificar Proyecto"
+                                    action="#{faseController.cmdModicacionFase()}"/>             
+                            </h:panelGrid>
+                        </ace:panel>
+                    </center>
+                </h:form>
+
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>
