@@ -10,10 +10,11 @@ and open the template in the editor.
       xmlns:ace="http://www.icefaces.org/icefaces/components"
       xmlns:jsf="http://xmlns.jcp.org/jsf"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-
+    
     <h:head>
         <ui:insert name="css">
         <h:outputStylesheet library="css" name="main3.css" />
+        <link rel="shortcut icon" type="image/x-icon" href="#{request.contextPath}//resources/media/acias.png"/>
         <title>RED ACIAS</title>
         </ui:insert>
         
@@ -49,9 +50,9 @@ and open the template in the editor.
                         </ul>
                     </li>
                     <li>
-                        <a href="#{request.contextPath}/faces/usuario/buscar.xhtml">Usuarios</a>
+                        <a href="#{request.contextPath}/faces/usuario/usuarios.xhtml">Usuarios</a>
 			<ul>
-                            <li><a href="#{request.contextPath}/faces/usuario/buscar.xhtml">Buscar usuario</a></li>
+                            <li><a href="#{request.contextPath}/faces/usuario/usuarios.xhtml">Listar usuario</a></li>
                             <li><a href="#{request.contextPath}/faces/usuario/gestion.xhtml">Gestionar Usuarios</a></li>
                         </ul>
                     </li>
@@ -120,7 +121,9 @@ and open the template in the editor.
                                                             </article>
                                                         </li>
                                                     </ul>
-                                                    <a href="#" class="button alt">Browse Archives</a>
+                                                    
+                                                    <a href="#{request.contextPath}/faces/archivo/archivos.xhtml" class="button alt">Buscar Archivos</a>
+                                                    
                                                 </div>
                                             </div>
                                         

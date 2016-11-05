@@ -17,7 +17,7 @@ import stateless.UsuarioFacade;
 
 /**
  *
- * @author Freddy Josué Camposeco Silvestre 0904-10-12051
+ * @author Freddy Josué Camposeco Silvestre <Carné: 0904-10-12051> <ankoku.fj@gmail.com>
  */
 @Named
 @SessionScoped
@@ -26,6 +26,10 @@ public class UsuarioController implements Serializable{
     private static final long serialVersionUID = -6004071469836183158L;
     
     private List<Usuario> listUsuario = null;
+    
+    private Integer idUsuario = null;
+    private String userName = null;
+    private String password = null;
 
     
     public List<Usuario> getListUsuario() {
@@ -36,20 +40,31 @@ public class UsuarioController implements Serializable{
         this.listUsuario = listUsuario;
     }
     
+    Usuario usuario;
     
     @Inject
     private UsuarioFacade usuarioFacade;
-    
     @PostConstruct
     public void init(){
         listUsuario=usuarioFacade.findAll();
     }
     
     public String cmdBuscar (){
-        return "./buscar.xhtml";
+        return "#{request.contextPath}/faces/usuarios.xhtml";
     }
     
     public String cmdGestion (){
-        return "./gestion.xhtml";
+        return "#{request.contextPath}/faces/gestion.xhtml";
     }
+    
+    public String crearUsuario(){
+        Usuario usuario = new Usuario ();
+        usuario.setIdUsuario(null);
+        usuario.setUsername(userName);
+        usuario.setPassword(password);
+        usuarioFacade.create(usuario);
+        listUsuario = usuarioFacade.findAll();
+        return "";
+    }
+    
 }

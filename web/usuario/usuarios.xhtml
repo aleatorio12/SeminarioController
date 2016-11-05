@@ -13,7 +13,7 @@
                     <h:form>
                         <ace:panel header="Lista de Usuarios Existentes" style="width: 500px">
                             <ace:dataTable value="#{usuarioController.listUsuario}" var="item" selectionMode="single" paginator="true" rows="15" pageCount="5">
-                                <ace:column headerText="ID" style="">
+                                <ace:column headerText="ID">
                                     <h:outputText value="#{item.idUsuario}"/>
                                 </ace:column>
                                 <ace:column headerText="Nombre Usuario" style="display: block; text-align: left;">
