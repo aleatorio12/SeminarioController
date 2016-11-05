@@ -1,36 +1,173 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
     <h:head>
-        <h:outputStylesheet library="css" name="style.css" />
-        <h:outputStylesheet library="css" name="cssLayout.css" />
-        <h:outputStylesheet library="css" name="default.css" />
-    </h:head>
-    <h:body>
-
-        <div id="page">
+        <ui:insert name="css">
+        <h:outputStylesheet library="css" name="main3.css" />
+        <title>RED ACIAS</title>
+        </ui:insert>
         
-            <div id="header">
-                <ui:insert name="header">
-                    <ui:include src="/WEB-INF/templates/header.xhtml"></ui:include>
-                </ui:insert>   
-            </div>
+    </h:head>
+    <h:body class="homepage">
+        <div id="page-wrapper">
 
-            <div id="content">
-                <ui:insert name="content">
-                    <ui:include src="/WEB-INF/templates/content.xhtml"></ui:include>
-                </ui:insert>   
-            </div>
+            <ui:insert name="cabecera">
+            <nav id="nav">
+		<ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li>
+                        <a href="proyecto/">Proyecto</a>
+			<ul>
+                            <li><a href="../ente/crearente.xhtml">Crear proyecto</a></li>
+                            <li><a href="../ente/ente.xhtml">Listar proyectos</a></li>
+                            <li><a href="../ente/ente.xhtml">Vincular ente a proyecto</a></li>
+			</ul>
+                    </li>
+                    <li>
+                        <a href="ente/ente.xhtml">Ente</a>
+			<ul>
+                            <li><a href="../ente/crearente.xhtml">Crear ente</a></li>
+                            <li><a href="../ente/ente.xhtml">Listar ente</a></li>
+			</ul>
+                    </li>
+                    <li>
+                        <a href="auditor/crearauditor.xhtml">Auditor</a>
+			<ul>
+                            <li><a href="auditor/crearauditor.xhtml">Crear auditor</a></li>
+                            <li><a href="ente/ente.xhtml">Listar auditores</a></li>
+                            <li><a href="ente/ente.xhtml">Vincular auditor a proyecto</a></li>
+                        </ul>
+                    </li>
+                    <li class="current">
+                        <a href="#">Bienvenido #{user.username}</a>
+                        <ul><h:form>
+                            <li><a jsf:action="#{loginController.cmdLogout()}">Cerrar Sesion</a></li>
+                        </h:form></ul>
+                    </li>
+                </ul>
+            </nav>
+            </ui:insert>            
+            
+            <div id="main-wrapper">
+                <div id="main" class="container">
 
-            <div id="footer">
-                <ui:insert name="footer">
-                    <ui:include src="/WEB-INF/templates/footer.xhtml"></ui:include>
-                </ui:insert>   
-            </div>
+                <div class="row 200%">
+                    <div class="12u">
+
+                    <!-- Blog -->
+        		<section class="box blog">
+                            <h2 class="major"><span></span></h2>
+                            <div>
+                                <div class="row">
+                                    <div class="9u 12u(mobile)">
+                                        <div class="content content-left">
+                                            <!-- Featured Post -->
+                                            <article class="box post">
+
+                                                <ui:insert name="content">
+                                                
+                                                <header>
+                                                    <h3><a href="#">Here's a really big heading</a></h3>
+                                                    <p>With a smaller subtitle that attempts to elaborate</p>
+                                                    <ul class="meta">
+                                                        <li class="icon fa-clock-o">15 minutes ago</li>
+                                                        <li class="icon fa-comments"><a href="#">8</a></li>
+                                                    </ul>
+                                                </header>
+                                                <a href="#" class="image featured"><img src="images/pic05.jpg" alt="" /></a>
+                                                <p>
+                                                Phasellus quam turpis, feugiat sit amet ornare in, a hendrerit in lectus. Praesent
+                                                semper mod quis eget mi. Etiam sed ante risus aliquam erat et volutpat. Praesent a
+                                                dapibus velit. Curabitur sed nisi nunc, accumsan vestibulum lectus. Lorem ipsum
+                                                dolor sit non aliquet sed, tempor et dolor.  Praesent a dapibus velit. Curabitur
+                                                accumsan.
+                                                </p>
+                                                <a href="#" class="button">Continue Reading</a>
+                                                </ui:insert>                                            
+                                            </article>
+                                        </div>
+                                    </div>
+                                    
+                                    <ui:insert name="navegacion">
+
+                                    <div class="3u 12u(mobile)">
+                                        <div class="sidebar">
+                                            <!-- Archives -->
+                                                <ul class="divided">
+                                                    <li>
+                                                        <article class="box post-summary">
+                                                        <h3><a href="#">A Subheading</a></h3>
+                                                        <ul class="meta">
+                                                            <li class="icon fa-clock-o">6 hours ago</li>
+                                                            <li class="icon fa-comments"><a href="#">Cerrar Sesion</a></li>
+                                                        </ul>
+                                                        
+                                                        </article>
+                                                    </li>
+                                                    <li>
+                                                        <article class="box post-summary">
+                                                            <h3><a href="#">Another Subheading</a></h3>
+                                                            <ul class="meta">
+                                                                <li class="icon fa-clock-o">9 hours ago</li>
+                                                                <li class="icon fa-comments"><a href="#">27</a></li>
+                                                            </ul>
+                                                        </article>
+                                                    </li>
+                                                    <li>
+                                                        <article class="box post-summary">
+                                                            <h3><a href="#">And Another</a></h3>
+                                                            <ul class="meta">
+                                                                <li class="icon fa-clock-o">Yesterday</li>
+                                                                <li class="icon fa-comments"><a href="#">184</a></li>
+                                                            </ul>
+                                                        </article>
+                                                    </li>
+                                                </ul>
+                                                <a href="#" class="button alt">Browse Archives</a>
+                                        </div>
+                                    </div>
+                                    </ui:insert>
+
+                                </div>
+                            </div>
+                        </section>
+
+                    </div>
+                </div>
+                </div>
+            </div>            
+            
+            <ui:insert name="pie">
+            
+            <footer id="footer" class="container">
+		<div id="copyright">
+			<ul class="menu">
+                            <li>RED ACIAS</li>
+                            <li><a href="http://miumghuehue.com">UMG Huehuetenango</a></li>
+                            <li>Diseño por: <a href="http://html5up.net">HTML5 UP</a></li>
+			</ul>
+		</div>
+            </footer>
+            </ui:insert>
             
         </div>
-            
+        
+			<script src="../resources/js/jquery.min.js"></script>
+			<script src="../resources/js/jquery.dropotron.min.js"></script>
+			<script src="../resources/js/skel.min.js"></script>
+			<script src="../resources/js/skel-viewport.min.js"></script>
+			<script src="../resources/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="../resources/js/main.js"></script>        
     </h:body>
 </html>

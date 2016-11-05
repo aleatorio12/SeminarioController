@@ -16,6 +16,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import stateless.EnteFacade;
 import stateless.EnteProyectoFacade;
+import stateless.ProyectoFacade;
 
 /**
  *
@@ -33,33 +34,43 @@ public class EnteProyectoController implements Serializable{
     //Campos de la tabla Ente
     
     private Integer idEnte = null;
-    private String idProyecto = null;
+    private Integer idProyecto = null;
     
     private List<EnteProyecto> listEnteProyecto = null;
+    private List<Ente> listEnte = null;
+    private List<Proyecto> listProyecto = null;
 
-    private Ente ente;
-    private Proyecto proyecto;
-    private EnteProyecto enteProyecto;
+    private Ente ente = null;
+    private Proyecto proyecto = null;
+    private String rol = null;
+    private EnteProyecto enteProyecto = null;
     
     @Inject
     private EnteProyectoFacade enteProyectoFacade;
+    @Inject
+    private EnteFacade enteFacade;
+    @Inject
+    private ProyectoFacade proyectoFacade;
     @PostConstruct
     public void init (){
         listEnteProyecto = enteProyectoFacade.findAll();
+        listEnte = enteFacade.findAll();
+        listProyecto = proyectoFacade.findAll();
     }
     
     public String cmdCreate(){
         return "/faces/enteproyecto/crear.xhtml";
     }
 
-    public String registrarEnte(){
-/*        Ente ente = new Ente();
-        ente.setNombre(nombre);
-        ente.setDireccion(direccion);
-        enteFacade.create(ente);
-        listEnte = enteFacade.findAll();
-*/
-        return "/faces/ente/ente.xhtml";
+    public String registrarEnteProyecto(){
+        
+        EnteProyecto enteProyecto = new EnteProyecto(this.idEnte, this.idProyecto);
+        enteProyecto.setEnte1(ente);
+        enteProyecto.setProyecto1(proyecto);
+        enteProyecto.setRol(rol);
+        enteProyectoFacade.create(enteProyecto);
+        listEnteProyecto = enteProyectoFacade.findAll();
+        return "/faces/enteproyecto/enteproyecto.xhtml";
 
     }
 
@@ -71,11 +82,11 @@ public class EnteProyectoController implements Serializable{
         this.idEnte = idEnte;
     }
 
-    public String getIdProyecto() {
+    public Integer getIdProyecto() {
         return idProyecto;
     }
 
-    public void setIdProyecto(String idProyecto) {
+    public void setIdProyecto(Integer idProyecto) {
         this.idProyecto = idProyecto;
     }
 
@@ -110,6 +121,47 @@ public class EnteProyectoController implements Serializable{
     public void setEnteProyecto(EnteProyecto enteProyecto) {
         this.enteProyecto = enteProyecto;
     }
-    
+
+    /**
+     * @return the listEnte
+     */
+    public List<Ente> getListEnte() {
+        return listEnte;
+    }
+
+    /**
+     * @param listEnte the listEnte to set
+     */
+    public void setListEnte(List<Ente> listEnte) {
+        this.listEnte = listEnte;
+    }
+
+    /**
+     * @return the listProyecto
+     */
+    public List<Proyecto> getListProyecto() {
+        return listProyecto;
+    }
+
+    /**
+     * @param listProyecto the listProyecto to set
+     */
+    public void setListProyecto(List<Proyecto> listProyecto) {
+        this.listProyecto = listProyecto;
+    }
+
+    /**
+     * @return the rol
+     */
+    public String getRol() {
+        return rol;
+    }
+
+    /**
+     * @param rol the rol to set
+     */
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
         
 }

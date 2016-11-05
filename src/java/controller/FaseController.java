@@ -126,6 +126,7 @@ public class FaseController implements Serializable{
     
     public String cmdModicacionFase(){
     Fase fase = new Fase();
+    fase.setIdFase(idfase);
     fase.setNombre(Nombre);
     fase.setFechaInicio(fechainicio);
     fase.setFechaFinalizacion(fechafinalizacion);

@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+
+      xmlns:h="http://java.sun.com/jsf/html"
+
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+    <h:head>
+        <h:outputStylesheet library="css" name="main.css" />
+        <h:outputStylesheet library="css" name="font-awesome.min.css" />
+        <h:outputStylesheet library="css" name="noscript.css" />
+        <title>RED ACIAS LOGIN</title>
+        
+    </h:head>
+    
+    <h:body class="is-loading">
+
+
+        <div id="wrapper">
+            <section id="main">
+                <header>
+                    
+                    <span class="avatar"><img src="images/avatar.jpg"/></span>
+                    <h1>RED ACIAS</h1>
+               
+                </header>
+                <h:form>
+                    <h:panelGroup>
+                        <div id="field">
+                            <h:outputText value="Usuario: "></h:outputText>
+                            <ace:textEntry id="username" value="#{loginController.username}"></ace:textEntry>
+                        </div>
+                        <div id="field">
+                            <h:outputText value="Password: "></h:outputText>
+                            <ace:textEntry id="password" value="#{loginController.password}" secret="true"></ace:textEntry>                        
+                        </div>
+                    </h:panelGroup>
+                    <div id="footer">
+                        <h:commandButton id="button" value="Iniciar Sesion" action="#{loginController.cmdLogin()}"> </h:commandButton>
+                    </div>
+                </h:form>
+            </section>
+            
+            <footer id="footer">
+                
+                <ul class="copyright">
+                    <li>Seminario de Informacion y Tecnologia</li>
+                    <li><a href="http://miumghuehue.com">UMG Huehuetenango</a> </li>
+                </ul>
+            </footer>
+            
+        </div>
+    </h:body>
+</html>
