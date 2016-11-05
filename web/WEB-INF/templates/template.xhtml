@@ -27,11 +27,12 @@ and open the template in the editor.
 		<ul>
                     <li><a href="#{request.contextPath}">Inicio</a></li>
                     <li>
-                        <a href="#{request.contextPath}/faces/ente/ente.xhtml">Proyecto</a>
+                        <a href="#{request.contextPath}/faces/proyecto/buscarproyecto.xhtml">Proyecto</a>
 			<ul>
-                            <li><a href="#{request.contextPath}/faces/ente/crearente.xhtml">Crear proyecto</a></li>
-                            <li><a href="#{request.contextPath}/faces/ente/ente.xhtml">Listar proyectos</a></li>
-                            <li><a href="#{request.contextPath}/faces/ente/ente.xhtml">Vincular ente a proyecto</a></li>
+                            <li><a href="#{request.contextPath}/faces/proyecto/buscarproyecto.xhtml">Listar proyecto</a></li>
+                            <li><a href="#{request.contextPath}/faces/proyecto/Insertaproyecto.xhtml">Crear proyectos</a></li>
+                            <li><a href="#{request.contextPath}/faces/proyecto/eliminarproyecto.xhtml">Eliminar proyecto</a></li>
+                            <li><a href="#{request.contextPath}/faces/proyecto/modificarproyecto.xhtml">Modificar proyecto</a></li>
 			</ul>
                     </li>
                     <li>
@@ -50,10 +51,18 @@ and open the template in the editor.
                         </ul>
                     </li>
                     <li>
-                        <a href="#{request.contextPath}/faces/usuario/usuarios.xhtml">Usuarios</a>
+                        <a href="#{request.contextPath}/faces/usuario/usuarios.xhtml">Usuario</a>
 			<ul>
                             <li><a href="#{request.contextPath}/faces/usuario/usuarios.xhtml">Listar usuario</a></li>
                             <li><a href="#{request.contextPath}/faces/usuario/gestion.xhtml">Gestionar Usuarios</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#{request.contextPath}/faces/fase/fase.xhtml">Fases</a>
+			<ul>
+                            <li><a href="#{request.contextPath}/faces/fase/fase.xhtml">Listar fase</a></li>
+                            <li><a href="#{request.contextPath}/faces/fase/crearfase.xhtml">Crear fase</a></li>
+                            <li><a href="#{request.contextPath}/faces/fase/edit.xhtml">Modificar fase</a></li>
                         </ul>
                     </li>
                     <li class="current">

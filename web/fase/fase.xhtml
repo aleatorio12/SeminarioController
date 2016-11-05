@@ -12,28 +12,33 @@
             <ui:define name="content">
 
                  <h:form>
-                     <center>
-                        <ace:panel header="DATOS FASE" style="width: 500px;">             
-                        <h:outputLabel value="Nombre" ></h:outputLabel>
-                        <ace:textEntry value="#{faseController.nombre}"></ace:textEntry>
-                        <h:outputLabel value="Fecha de Inicio" ></h:outputLabel>                                 
-                        <ace:textEntry value="#{faseController.fechaInicio}"></ace:textEntry>
-                        <h:outputLabel value="Fecha de Finalizacion" ></h:outputLabel>
-                        <ace:textEntry value="#{faseController.fechaFinalizacion}"></ace:textEntry>
-                        <h:outputLabel value="Estado" ></h:outputLabel>
-                        <ace:textEntry value="#{faseController.estado}"></ace:textEntry>
-                        <h:commandButton value="Crear" action="#{faseController.registrarFase}"> </h:commandButton>
-                        </ace:panel>
-                     </center>
+                     <h:commandButton value="NUEVO" action="#{faseController.cmdCrear}"/>
                      
-                     
-                    
-                      
-                 </h:form> 
-                
-                              
-
-            </ui:define>
+                     <ace:dataTable value="#{faseController.list}" var="fa">            
+                        <ace:column headerText="Nombre">      
+                             <h:outputText value="#{fa.nombre}"/>
+                        </ace:column>
+                        
+                         <ace:column headerText="Fecha de Inicio">
+                             <h:outputText value="#{fa.fechaInicio}"/>
+                         </ace:column>
+                         
+                         <ace:column headerText="Fecha de Finalizacion">
+                              <h:outputText value="#{fa.fechaFinalizacion}"/>
+                         </ace:column>
+                         
+                         <ace:column headerText="Estado">
+                              <h:outputText value="#{fa.estado}"/>
+                         </ace:column>
+                         <ace:column id="options" headerText="Opciones">
+                   <ace:rowEditor id="editor"/>
+                   <h:commandButton value="Modificar" action="#{faseController.cmdModificar(fa)}"/> 
+               </ace:column>
+                             
+                            
+                     </ace:dataTable>                    
+                  </h:form> 
+             </ui:define>
         </ui:composition>
 
     </body>

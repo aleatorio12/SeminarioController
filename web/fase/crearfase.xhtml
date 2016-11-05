@@ -17,13 +17,13 @@
                                 <h:outputLabel value="ID Fase :"/>
                                 <h:outputLabel value="El programa colocara automaticamente el ID de Fase"/>
                                 <h:outputLabel value="Nombre de Fase :"/>
-                                <ace:textEntry value="#{faseController.nombre}"/>
+                                <ace:textEntry value="#{faseController.nombre}" placeholder="Identifica la Fase"/>
                                 <h:outputLabel value="Fecha de Inicio :"/>
-                                <ace:dateTimeEntry id="dateTimeEntry1" locale="es_MX"
-                                                   value="#{faseController.fechainicio}" renderAsPopup="true"/>   
+                                <ace:dateTimeEntry id="dateTimeEntry1" locale="es_GT"
+                                                   value="#{faseController.fechaInicio}" renderAsPopup="true"/>   
                                 <h:outputLabel value="Fecha de Finalizacion :"/>
-                                <ace:dateTimeEntry id="dateTimeEntry2" locale="es_MX"
-                                                   value="#{faseController.fechafinalizacion}" renderAsPopup="true"/>
+                                <ace:dateTimeEntry id="dateTimeEntry2" locale="es_GT"
+                                                   value="#{faseController.fechaFinalizacion}" renderAsPopup="true"/>
                                 <h:outputLabel value="Estado :"/>
                                 <ace:simpleSelectOneMenu id="filterIn" value="#{faseController.estado}">
                                     <ace:ajax event="valueChange"/>
