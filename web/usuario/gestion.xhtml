@@ -27,6 +27,7 @@
                                                />
                                 <ace:textEntry title="Ingresa un nombre de Usuario (NIC)."  
                                                placeholder="alias"
+                                               value="#{usuarioController.userName}"
                                                />
                                 <h:outputLabel value="Password: " 
                                                title="Contraseña de Usuario."
@@ -36,8 +37,9 @@
                                                title="Ingresa la contraseña para el Nuevo Usuario."  
                                                placeholder="contraseña" 
                                                type="password" 
+                                               value="#{usuarioController.password}"
                                                />
-                                <h:commandButton value="Crear"/>
+                                <h:commandButton value="Crear" action="#{usuarioController.crearUsuario()}"></h:commandButton>
                             </h:panelGrid>
                         </ace:panel>
                     </center>

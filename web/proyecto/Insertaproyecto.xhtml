@@ -16,20 +16,35 @@
                             <h:panelGrid columns="2">
                                 <h:outputLabel value="NOG"/>
                                 <ace:textEntry value="#{proyectoController.nog}"/>
+                                
                                 <h:outputLabel value="Nombre"/>
                                 <ace:textEntry value="#{proyectoController.nombre}"/>
+                                
                                 <h:outputLabel value="Monto"/>
                                 <ace:textEntry value="#{proyectoController.monto}"/>
+                                
                                 <h:outputLabel value="Direccion"/>
                                 <ace:textEntry value="#{proyectoController.direccion}"/>
+                                
                                 <h:outputLabel value="Fecha de Inicio"/>
-                                <ace:textEntry value="#{proyectoController.fechaInicio}"/>
+                                <ace:dateTimeEntry id="dateTimeEntry1" locale="es_GT"
+                                                   value="#{proyectoController.fechaInicio}" renderAsPopup="true"/> 
+                                
                                 <h:outputLabel value="Fecha de Finalizacion"/>
-                                <ace:textEntry value="#{proyectoController.fechaFinalizacion}"/>
+                                <ace:dateTimeEntry id="dateTimeEntry2" locale="es_GT"
+                                                   value="#{proyectoController.fechaFinalizacion}" renderAsPopup="true"/>   
+                                
                                 <h:outputLabel value="Impacto Social"/>
                                 <ace:textEntry value="#{proyectoController.impactosocial}"/>
+                                
                                 <h:outputLabel value="Estado"/>
-                                <ace:textEntry value="#{proyectoController.estado}"/>
+                                <ace:simpleSelectOneMenu id="filterIn" value="#{proyectoController.estado}">
+                                    <ace:ajax event="valueChange"/>
+                                    <f:selectItem itemValue="E" itemLabel="EN PROCESO"/>
+                                    <f:selectItem itemValue="N" itemLabel="NO FINALIZADA"/>
+                                    <f:selectItem itemValue="F" itemLabel="FINALIZADA"/> 
+                                </ace:simpleSelectOneMenu>
+                                
                                 <h:commandButton id="cmdGravarProyecto"
                                     value="Grabar Proyecto"
                                     action="#{proyectoController.cmdInsertarProyecto()}"/>             
@@ -39,7 +54,7 @@
                 </h:form>
 
             </ui:define>
+            <ui:define name="navegacion"></ui:define>
         </ui:composition>
-
     </body>
 </html>

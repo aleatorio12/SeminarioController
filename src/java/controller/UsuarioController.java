@@ -39,6 +39,38 @@ public class UsuarioController implements Serializable{
     public void setListUsuario(List<Usuario> listUsuario) {
         this.listUsuario = listUsuario;
     }
+
+    public Integer getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Integer idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
     
     Usuario usuario;
     
@@ -64,7 +96,7 @@ public class UsuarioController implements Serializable{
         usuario.setPassword(password);
         usuarioFacade.create(usuario);
         listUsuario = usuarioFacade.findAll();
-        return "";
+        return "./usuarios.xhtml";
     }
     
 }

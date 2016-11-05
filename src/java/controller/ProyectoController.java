@@ -36,6 +36,8 @@ public class ProyectoController implements Serializable{
     private Character estado = null;
     private Proyecto proyecto = null;
     
+    private boolean popup = true;
+    
     private List<Proyecto> list = null;
 
     public List<Proyecto> getList() {
@@ -117,6 +119,14 @@ public class ProyectoController implements Serializable{
 
     public void setEstado(Character estado) {
         this.estado = estado;
+    }
+    
+    public boolean isPopup() {
+        return popup;
+    }
+
+    public void setPopup(boolean popup) {
+        this.popup = popup;
     }
     
     @Inject
