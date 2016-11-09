@@ -65,14 +65,14 @@ public class LoginController implements Serializable{
                 
                 //Se ejecuta cuando usuario y pass coinciden.
                 context.getExternalContext().getSessionMap().put("user", user);
-                return "localhost:8080/SeminarioController/faces/";
+                return "/faces/index.xhtml";
             }
             else{
                 
                 //Se ejecuta cuando si se encuentra el usuario pero la
                 //pass no coincide.
                 
-                return "usuario/buscar.xhtml";
+                return "/faces/login.xhtml";
             }
             
         }        
