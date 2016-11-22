@@ -89,7 +89,7 @@ public class LoginController implements Serializable{
     public String cmdLogout(){
         
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
-        return "ente/ente.xhtml";
+        return "ente/ente.xhtml?faces-redirect=true";
     }
 
     public String isUserLogued(){
