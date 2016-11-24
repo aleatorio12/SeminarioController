@@ -44,7 +44,7 @@ public class EnteController implements Serializable{
     }
     
     public String cmdCreate(){
-        return "/faces/ente/crearente.xhtml";
+        return "crearente.xhtml";
     }
 
     public String registrarEnte(){
@@ -53,14 +53,44 @@ public class EnteController implements Serializable{
         ente.setDireccion(direccion);
         enteFacade.create(ente);
         listEnte = enteFacade.findAll();
-        return "/faces/ente/ente.xhtml";
+
+        this.nombre = null;
+        this.direccion = null;
+        this.idEnte = null;
+        this.ente = null;
+        
+        return "/ente/ente.xhtml?faces-redirect=true";
+        
     }
 
     public String eliminarEnte(Ente ente){
         this.ente = ente;
         enteFacade.remove(ente);
         listEnte = enteFacade.findAll();
-        return "/faces/ente/ente.xhtml";
+        return "ente.xhtml";
+    }
+
+    public String modificarEnte( Ente ente ){
+        idEnte = ente.getIdEnte();
+        nombre = ente.getNombre();
+        direccion = ente.getDireccion();
+        this.ente = ente;
+        return "modificar.xhtml";
+    }
+
+    public String actualizarEnte(){
+        ente.setDireccion(direccion);
+        ente.setNombre(nombre);
+        ente.setIdEnte(idEnte);
+        enteFacade.edit(ente);
+        listEnte = enteFacade.findAll();
+        
+        ente = null;
+        direccion = null;
+        nombre = null;
+        idEnte = null;
+        
+        return "ente.xhtml";
     }
     
     /**

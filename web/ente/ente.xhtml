@@ -16,20 +16,22 @@
                 <h:form id="formEnte">
                     <ace:dataTable id="tablaEnte"
                                    value="#{enteController.listEnte}"
-                                   var="ente">
+                                   var="ente"
+                                   paginator="true"
+                                   pageCount="5"
+                                   rows="10">
 
                         <ace:column id="idEnte" headerText="ID">
                             <h:outputText id="idEnteColumna" value="#{ente.idEnte}"></h:outputText>
                         </ace:column>
-                        <ace:column id="nombreEnte" headerText="NOMBRE">
+                        <ace:column id="nombreEnte" headerText="NOMBRE" filterBy="#{ente.nombre}" filterMatchMode="contains">
                             <h:outputText id="nombreEnteColumna" value="#{ente.nombre}"></h:outputText>
                         </ace:column>
-                        <ace:column id="direccionEnte" headerText="DIRECCIÓN">
+                        <ace:column id="direccionEnte" headerText="DIRECCIÓN" filterBy="#{ente.direccion}" filterMatchMode="contains">
                             <h:outputText id="direccionEnteColumna" value="#{ente.direccion}"></h:outputText>
                         </ace:column>
                          <ace:column id="accionEnte" headerText="ACCIONES">
-                             <h:commandButton id="modificarEnte" action="#{enteController.cmdCreate()}" value="Modificar"></h:commandButton>
-                             <h:commandButton id="eliminarEnte" action="#{enteController.eliminarEnte(ente)}" value="Eliminar"></h:commandButton>                             
+                             <h:commandButton id="modificarEnte" action="#{enteController.modificarEnte(ente)}" value="Modificar"></h:commandButton>                             
                         </ace:column>
                     </ace:dataTable>                    
                 </h:form>

@@ -69,11 +69,23 @@ public class EnteProyectoController implements Serializable{
         enteProyecto.setProyecto1(proyecto);
         enteProyecto.setRol(rol);
         enteProyectoFacade.create(enteProyecto);
-        listEnteProyecto = enteProyectoFacade.findAll();
-        return "/faces/enteproyecto/enteproyecto.xhtml";
+        resetearCampos();
+        return "/enteproyecto/enteproyecto.xhtml?faces-redirect=true";
 
     }
 
+    private void resetearCampos(){
+        this.ente = null;
+        this.proyecto = null;
+        this.enteProyecto = null;
+        this.idEnte = null;
+        this.idProyecto = null;
+        this.rol = null;
+        listEnteProyecto = enteProyectoFacade.findAll();
+        listProyecto = proyectoFacade.findAll();
+        listEnte = enteFacade.findAll();
+    }
+    
     public Integer getIdEnte() {
         return idEnte;
     }

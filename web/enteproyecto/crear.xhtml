@@ -14,40 +14,42 @@
             <ui:define name="content">
                 
                 <h:form id="inputForm" >
-                    <h:panelGroup >
+                    <ace:panel header="Vincular Ente y Proyecto" >
+                        <h:panelGrid columns="2">
+                            <h:outputText value="Seleccione ente:"></h:outputText>
+                            <ace:simpleSelectOneMenu id="selectEnte" value="#{enteProyectoController.idEnte}"
+                                                     rendered="true"
+                                                     label="Seleccionar ente:"
+                                                     labelPosition="none">
+                                <f:selectItems value="#{enteProyectoController.listEnte}"
+                                               var="listEnte"
+                                               itemValue="#{listEnte.idEnte}"
+                                               itemLabel="#{listEnte.nombre}"
+                                               />
+                            </ace:simpleSelectOneMenu>
+                            <h:outputText value="Seleccionar proyecto:"></h:outputText>
+                            <ace:simpleSelectOneMenu id="selectProyecto" value="#{enteProyectoController.idProyecto}"
+                                                     rendered="true"
+                                                     label="Seleccionar Proyecto:"
+                                                     labelPosition="none">
+                                <f:selectItems value="#{enteProyectoController.listProyecto}"
+                                               var="listProyecto"
+                                               itemValue="#{listProyecto.nog}"
+                                               itemLabel="#{listProyecto.nombre}"
+                                               />
+                            </ace:simpleSelectOneMenu>
+                            <h:outputText value="Seleccione un rol"></h:outputText>
+                            <ace:simpleSelectOneMenu id="selectRol" value="#{enteProyectoController.rol}"
+                                                     rendered="true"
+                                                     label="Seleccionar Proyecto:"
+                                                     labelPosition="none">
+                                <f:selectItem itemValue="RECTOR" itemLabel="RECTOR" />
+                                <f:selectItem itemValue="EJECUTOR" itemLabel="EJECUTOR" />
+                                <f:selectItem itemValue="SUPERVISOR" itemLabel="SUPERVISOR" />                            
+                            </ace:simpleSelectOneMenu>                        
                         
-                        <ace:simpleSelectOneMenu id="selectEnte" value="#{enteProyectoController.idEnte}"
-                                                 rendered="true"
-                                                 label="Seleccionar ente:"
-                                                 labelPosition="top">
-                            <f:selectItems value="#{enteProyectoController.listEnte}"
-                                           var="listEnte"
-                                           itemValue="#{listEnte.idEnte}"
-                                           itemLabel="#{listEnte.nombre}"
-                                           />
-                        </ace:simpleSelectOneMenu>
-                        
-                        <ace:simpleSelectOneMenu id="selectProyecto" value="#{enteProyectoController.idProyecto}"
-                                                 rendered="true"
-                                                 label="Seleccionar Proyecto:"
-                                                 labelPosition="top">
-                            <f:selectItems value="#{enteProyectoController.listProyecto}"
-                                           var="listProyecto"
-                                           itemValue="#{listProyecto.nog}"
-                                           itemLabel="#{listProyecto.nombre}"
-                                           />
-                        </ace:simpleSelectOneMenu>
-
-                        <ace:simpleSelectOneMenu id="selectRol" value="#{enteProyectoController.rol}"
-                                                 rendered="true"
-                                                 label="Seleccionar Proyecto:"
-                                                 labelPosition="top">
-                            <f:selectItem itemValue="RECTOR" itemLabel="RECTOR" />
-                            <f:selectItem itemValue="EJECUTOR" itemLabel="EJECUTOR" />
-                            <f:selectItem itemValue="SUPERVISOR" itemLabel="SUPERVISOR" />                            
-                        </ace:simpleSelectOneMenu>                        
-                        
-                    </h:panelGroup>
+                        </h:panelGrid>
+                    </ace:panel>
                     <h:commandButton value="Registrar" action="#{enteProyectoController.registrarEnteProyecto()}"> </h:commandButton>
                 </h:form>                
                 

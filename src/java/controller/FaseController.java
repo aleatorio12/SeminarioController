@@ -133,7 +133,8 @@ public class FaseController implements Serializable {
         fase.setFechaFinalizacion(fechaFinalizacion);
         fase.setEstado(estado);
         FaseFacade.create(fase);
-                return "fase.xhtml";
+        list = FaseFacade.findAll();
+        return "fase.xhtml";
         
     }
     
@@ -144,7 +145,8 @@ public class FaseController implements Serializable {
         fase.setFechaFinalizacion(fechaFinalizacion);
         fase.setEstado(estado);
         FaseFacade.edit(fase);
-                return "fase.xhtml";
+        list = FaseFacade.findAll();
+        return "fase.xhtml";
         
     }
 

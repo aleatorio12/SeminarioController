@@ -14,11 +14,15 @@
             <ui:define name="content">
                 
                 <h:form>
-                    <h:outputLabel value="Nombre" ></h:outputLabel>
-                    <ace:textEntry value="#{enteController.nombre}"></ace:textEntry>
-                    <h:outputLabel value="Dirección" ></h:outputLabel>
-                    <ace:textEntry value="#{enteController.direccion}"></ace:textEntry>
-                    <h:commandButton value="Registrar" action="#{enteController.registrarEnte}"> </h:commandButton>
+                    <ace:panel header="Crear nuevo Ente">
+                        <h:panelGrid columns="2">
+                            <h:outputLabel value="Nombre" ></h:outputLabel>
+                            <ace:textEntry value="#{enteController.nombre}"></ace:textEntry>
+                            <h:outputLabel value="Dirección" ></h:outputLabel>
+                            <ace:textEntry value="#{enteController.direccion}"></ace:textEntry>
+                            <h:commandButton value="Registrar" action="#{enteController.registrarEnte()}" />
+                        </h:panelGrid>
+                    </ace:panel>
                 </h:form>                
                 
             </ui:define>
