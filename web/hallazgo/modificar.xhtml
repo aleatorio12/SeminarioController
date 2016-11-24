@@ -14,13 +14,15 @@
             <ui:define name="content">
                 
                 <h:form>
-                    <ace:panel header="Modificar ente">
-                        <h:outputLabel value="Nombre" ></h:outputLabel>
-                        <ace:textEntry value="#{enteController.nombre}"></ace:textEntry>
-                        <h:outputLabel value="Dirección" ></h:outputLabel>
-                        <ace:textEntry value="#{enteController.direccion}"></ace:textEntry>
-                        <h:commandButton value="Actualizar" action="#{enteController.actualizarEnte()}"> </h:commandButton>
-                    </ace:panel>               
+                    <ace:panel header="Modificar Hallazgo">
+                        <h:outputLabel value="Comentario" ></h:outputLabel>
+                        <ace:textAreaEntry id="hallazg" value="#{hallazgoController.comentario}">
+                            <f:validateLength maximum="254" minimum="1" />
+                            <ace:ajax event="blur" render="hallazgoError"/>
+                        </ace:textAreaEntry>
+                    </ace:panel>
+                    <ace:message style="color: red;" id="hallazgoError" for="hallazg"/>
+                    <h:commandButton value="Actualizar" action="#{hallazgoController.actualizarHallazgo()}"> </h:commandButton>
                 </h:form>                
                 
             </ui:define>

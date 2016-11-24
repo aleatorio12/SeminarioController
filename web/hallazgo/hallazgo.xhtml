@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:icecore="http://www.icefaces.org/icefaces/core"
+      xmlns:ace="http://www.icefaces.org/icefaces/components">
+
+    <body>
+
+        <ui:composition template="/WEB-INF/templates/template.xhtml">
+
+            <ui:define name="content">
+
+                <h:form id="formEnte">
+                    <ace:dataTable id="tablaEnte"
+                                   value="#{hallazgoController.listHallazgo}"
+                                   var="hallazgo"
+                                   paginator="true"
+                                   pageCount="5"
+                                   rows="10">
+
+                        <ace:column id="idHallazgo" headerText="ID">
+                            <h:outputText id="idEnteColumna" value="#{hallazgo.idHallazgo}"></h:outputText>
+                        </ace:column>
+                        <ace:column id="nombreHallazgo" headerText="COMENTARIO" filterBy="#{hallazgo.comentario}" filterMatchMode="contains">
+                            <h:outputText id="nombreEnteColumna" value="#{hallazgo.comentario}"></h:outputText>
+                        </ace:column>
+                         <ace:column id="accionHallazgo" headerText="ACCIONES">
+                             <h:commandButton id="modificarEnte" action="#{hallazgoController.cmdModificar(hallazgo)}" value="Modificar"></h:commandButton>                             
+                        </ace:column>
+                    </ace:dataTable>                    
+                </h:form>
+            </ui:define>
+        </ui:composition>
+
+    </body>
+</html>

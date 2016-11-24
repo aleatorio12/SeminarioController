@@ -77,11 +77,17 @@ public class ProyectoFaseController implements Serializable{
         }
         
         List<Fase> listFaseProyecto = null;
+        List<Proyecto> listProyectoFase = null;
         listFaseProyecto =  proyecto.getFaseList();
         listFaseProyecto.add(fase);
         proyecto.setFaseList(listFaseProyecto);
         proyectoFacade.edit(proyecto);
-        return "proyectofase.xhtml";
+        
+        listProyectoFase = fase.getProyectoList();
+        listProyectoFase.add(proyecto);
+        fase.setProyectoList(listProyectoFase);
+        faseFacade.edit(fase);
+        return "proyectofase.xhtml?faces-redirect=true";
     }    
     
     /**

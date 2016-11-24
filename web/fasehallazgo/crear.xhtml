@@ -17,29 +17,29 @@
                     <ace:panel header="Vincular Fase a Proyecto">
                         <h:panelGrid columns="2">
                         
-                            <ace:simpleSelectOneMenu id="selectProyecto" value="#{proyectoFaseController.idProyecto}"
+                            <ace:simpleSelectOneMenu id="selectHallazgo" value="#{faseHallazgoController.idHallazgo}"
                                                      rendered="true"
-                                                     label="Seleccionar proyecto:"
+                                                     label="Seleccionar hallazgo:"
                                                      labelPosition="top">
-                                <f:selectItems value="#{proyectoFaseController.listProyecto}"
-                                               var="listProyecto"
-                                               itemValue="#{listProyecto.nog}"
-                                               itemLabel="#{listProyecto.nombre}"
+                                <f:selectItems value="#{faseHallazgoController.hallazgoList}"
+                                               var="listHallazgo"
+                                               itemValue="#{listHallazgo.idHallazgo}"
+                                               itemLabel="#{listHallazgo.comentario}"
                                                />
                             </ace:simpleSelectOneMenu>
                         
-                            <ace:simpleSelectOneMenu id="selectFase" value="#{proyectoFaseController.idFase}"
+                            <ace:simpleSelectOneMenu id="selectFase" value="#{faseHallazgoController.idFase}"
                                                      rendered="true"
                                                      label="Seleccionar Fase:"
                                                      labelPosition="top">
-                                <f:selectItems value="#{proyectoFaseController.listFase}"
+                                <f:selectItems value="#{faseHallazgoController.faseList}"
                                                var="listFase"
                                                itemValue="#{listFase.idFase}"
                                                itemLabel="#{listFase.nombre}"
                                                />
                             </ace:simpleSelectOneMenu>
                         </h:panelGrid>
-                    <h:commandButton value="Registrar" action="#{proyectoFaseController.cmdCrear()}"> </h:commandButton>
+                        <h:commandButton value="Registrar" action="#{faseHallazgoController.cmdCrear()}"> </h:commandButton>
                     </ace:panel>
                 </h:form>                
                 
